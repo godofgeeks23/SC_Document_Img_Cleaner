@@ -26,7 +26,3 @@ for filename in os.listdir(directory):
         else:
             print(f+ " - Non Document")
             os.rename(f, directory + "/_other_imgs/" + filename)
-
-
-
-
