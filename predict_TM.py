@@ -12,7 +12,6 @@ os.mkdir(directory + "/_other_imgs")
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
     if os.path.isfile(f):
-        # print(f)
         image = Image.open(f)
         size = (224, 224)
         image = ImageOps.fit(image, size, Image.ANTIALIAS)
@@ -23,8 +22,10 @@ for filename in os.listdir(directory):
         y_classes = prediction.argmax(axis=-1)
         if(y_classes[0] == 0):
             print(f+ " - Document")
+            os.rename(f, directory + "/_doc_imgs/" + filename)
         else:
             print(f+ " - Non Document")
+            os.rename(f, directory + "/_other_imgs/" + filename)
 
 
 
